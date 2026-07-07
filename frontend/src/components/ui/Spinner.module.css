@@ -1,0 +1,17 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.ring {
+  border-radius: 50%;
+  border: 2.5px solid var(--border);
+  border-top-color: var(--brass);
+  animation: spin 0.75s linear infinite;
+}
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}

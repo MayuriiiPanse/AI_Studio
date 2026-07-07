@@ -1,0 +1,61 @@
+.promptCard { max-width: 720px; margin-bottom: 44px; }
+
+.promptActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.enhanced {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  font-style: italic;
+  max-width: 420px;
+}
+
+.generateBtn { margin-left: auto; }
+
+.section { }
+.sectionTitle { font-size: 17px; margin-bottom: 16px; }
+
+.loadingRow { padding: 50px; display: flex; justify-content: center; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.posterCard { overflow: hidden; }
+
+.posterImg {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: var(--surface-2);
+}
+
+.posterBody {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.posterPrompt {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.posterActions {
+  display: flex;
+  gap: 8px;
+}

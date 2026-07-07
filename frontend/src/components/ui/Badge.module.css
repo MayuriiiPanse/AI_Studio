@@ -1,0 +1,21 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: var(--surface-2);
+  white-space: nowrap;
+}
+
+.brass { color: var(--brass-strong); background: var(--brass-tint); border-color: transparent; }
+.teal { color: var(--teal-strong); background: var(--teal-tint); border-color: transparent; }
+.marigold { color: var(--marigold-strong); background: var(--marigold-tint); border-color: transparent; }
+.danger { color: var(--danger); background: var(--danger-tint); border-color: transparent; }
+.default { }

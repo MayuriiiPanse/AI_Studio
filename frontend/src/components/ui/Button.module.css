@@ -1,0 +1,140 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.25s ease, color 0.18s ease;
+  user-select: none;
+}
+
+/* Soft sheen that sweeps across on hover — the one "premium" flourish,
+   used everywhere but subtle enough not to compete with anything. */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.45) 48%, transparent 66%);
+  transform: translateX(-120%);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+.btn:hover:not(:disabled)::before {
+  transform: translateX(120%);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.md { padding: 11px 22px; }
+.sm { padding: 8px 16px; font-size: 13px; }
+.lg { padding: 14px 28px; font-size: 15px; }
+
+.primary {
+  background: var(--brass);
+  color: #2E2440;
+  border-color: var(--brass);
+  box-shadow: var(--shadow-sm);
+}
+.primary:hover:not(:disabled) {
+  background: var(--brass-strong);
+  border-color: var(--brass-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px) scale(1.01);
+}
+
+/* Reserved for the highest-stakes conversion moments — hero + pricing CTA.
+   Not used elsewhere so it keeps its punch. */
+.gradient {
+  background: var(--gradient-brand);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 10px 30px -8px color-mix(in srgb, var(--pink) 55%, transparent), var(--shadow-sm);
+}
+.gradient:hover:not(:disabled) {
+  box-shadow: 0 16px 40px -8px color-mix(in srgb, var(--pink) 65%, transparent), var(--shadow-md);
+  transform: translateY(-1px) scale(1.015);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.secondary:hover:not(:disabled) {
+  border-color: var(--brass);
+  color: var(--brass-strong);
+  background: var(--brass-tint);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: transparent;
+}
+.ghost:hover:not(:disabled) {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger);
+}
+.danger:hover:not(:disabled) {
+  background: var(--danger);
+  color: #fff;
+}
+
+.teal {
+  background: var(--teal);
+  color: #06231f;
+  border-color: var(--teal);
+}
+.teal:hover:not(:disabled) {
+  background: var(--teal-strong);
+  color: #fff;
+}
+
+.label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn > svg { position: relative; z-index: 2; }
+
+.spinner {
+  position: relative;
+  z-index: 2;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: spin 0.7s linear infinite;
+  opacity: 0.85;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

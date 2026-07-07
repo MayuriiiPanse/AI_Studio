@@ -1,0 +1,53 @@
+.addCard { margin-bottom: 40px; }
+
+.formTitle { font-size: 15px; margin-bottom: 16px; }
+
+.form { display: flex; flex-direction: column; gap: 14px; }
+
+.typeRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.typeBtn {
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.typeBtn:hover { border-color: var(--brass); color: var(--text); }
+.typeActive { background: var(--brass-tint); border-color: var(--brass); color: var(--brass-strong); }
+
+.addBtn { align-self: flex-end; }
+
+.sectionTitle { font-size: 17px; margin-bottom: 16px; }
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.itemHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.itemDate {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.itemContent {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.55;
+  white-space: pre-wrap;
+}

@@ -1,0 +1,36 @@
+.promptCard { max-width: 680px; margin-bottom: 44px; }
+
+.actionsRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.sectionTitle { font-size: 17px; margin-bottom: 16px; }
+
+.loadingRow { padding: 50px; display: flex; justify-content: center; }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 680px;
+}
+
+.voiceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.voiceText {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}

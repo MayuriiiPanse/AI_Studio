@@ -1,0 +1,11 @@
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-brand);
+  transform-origin: 0% 50%;
+  z-index: 100;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--pink) 60%, transparent);
+}

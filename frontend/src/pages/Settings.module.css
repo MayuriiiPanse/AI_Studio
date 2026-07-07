@@ -1,0 +1,113 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  max-width: 880px;
+}
+
+.cardTitle { font-size: 15px; margin-bottom: 18px; }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.row:last-child { border-bottom: none; }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.value { font-size: 14px; color: var(--text); }
+.mono { font-family: var(--font-mono); font-size: 12.5px; }
+
+.themeRow {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.themeIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--brass-tint);
+  color: var(--brass-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.themeLabel { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.themeHint { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+
+.themeSwitch {
+  position: relative;
+  display: flex;
+  gap: 4px;
+  margin-top: 18px;
+  padding: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+
+.themeOption {
+  position: relative;
+  flex: 1;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.themeOption:hover {
+  color: var(--text);
+}
+
+.themeOption[aria-checked="true"] {
+  color: var(--text);
+}
+
+.themePill {
+  position: absolute;
+  inset: 0;
+  background: var(--surface);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  z-index: 0;
+}
+
+.themeOptionContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.envHint { font-size: 12.5px; color: var(--text-faint); margin-top: 10px; }
+.envHint code {
+  font-family: var(--font-mono);
+  background: var(--surface-2);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+@media (max-width: 700px) {
+  .grid { grid-template-columns: 1fr; }
+}

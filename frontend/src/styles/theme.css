@@ -1,0 +1,146 @@
+/* ==========================================================================
+   DESIGN TOKENS — "Cotton / Dusk" theme, v2
+   Base palette pulled from a pastel rainbow reference (lilac/sky/mint/
+   butter/pink). A saturated jewel-tone gradient (indigo -> magenta -> coral)
+   is reserved as --gradient-brand for a small number of "this matters" spots
+   — primary marketing CTAs, glows — everything else stays calm pastel.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- Light ("Cotton") --- */
+  --bg: #FDF9FE;
+  --bg-elevated: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-2: #F7EFFC;
+  --border: #ECDFF7;
+  --border-strong: #DBC5EF;
+
+  --text: #2E2440;
+  --text-muted: #7A6C90;
+  --text-faint: #AE9EC4;
+
+  /* lilac — primary */
+  --brass: #C98AF0;
+  --brass-strong: #9A4FDB;
+  --brass-tint: #F3E4FC;
+
+  /* mint — secondary */
+  --teal: #4FC79A;
+  --teal-strong: #2FA57C;
+  --teal-tint: #DFF7EC;
+
+  /* butter — tertiary */
+  --marigold: #E8C94A;
+  --marigold-strong: #C9A628;
+  --marigold-tint: #FBF4D2;
+
+  /* sky — quaternary */
+  --sky: #5CB8EE;
+  --sky-strong: #2E93D1;
+  --sky-tint: #E1F2FD;
+
+  /* pink — quinary */
+  --pink: #F0579F;
+  --pink-strong: #D13A82;
+  --pink-tint: #FDE3F0;
+
+  --danger: #EF6E8E;
+  --danger-tint: #FCE1E9;
+  --success: #3FAE7D;
+
+  --gradient-brand: linear-gradient(135deg, #4B2991 0%, #872CA2 22%, #C0369D 44%, #EA4F88 66%, #FA7876 84%, #F6A97A 100%);
+
+  --shadow-sm: 0 1px 2px rgba(90, 60, 120, 0.07), 0 1px 1px rgba(90, 60, 120, 0.04);
+  --shadow-md: 0 8px 22px rgba(90, 60, 120, 0.11), 0 2px 6px rgba(90, 60, 120, 0.06);
+  --shadow-lg: 0 26px 60px rgba(90, 60, 120, 0.17), 0 8px 18px rgba(90, 60, 120, 0.09);
+
+  --grain-opacity: 0.02;
+  --scrim: rgba(45, 30, 60, 0.45);
+
+  --focus-ring: 0 0 0 3px rgba(154, 79, 219, 0.32);
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --font-display: "Fraunces", "Iowan Old Style", ui-serif, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+/* --- Dark ("Dusk") --- */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #1B1626;
+  --bg-elevated: #211A2E;
+  --surface: #251D33;
+  --surface-2: #2E2440;
+  --border: #3B2E52;
+  --border-strong: #4C3C68;
+
+  --text: #F5EEFC;
+  --text-muted: #C0AEDB;
+  --text-faint: #8C7BA8;
+
+  --brass: #DDA9F7;
+  --brass-strong: #EFCBFF;
+  --brass-tint: #392A4E;
+
+  --teal: #7FE8BE;
+  --teal-strong: #A6F2D2;
+  --teal-tint: #1F3A2E;
+
+  --marigold: #F3DC7E;
+  --marigold-strong: #F8E8A8;
+  --marigold-tint: #3C351C;
+
+  --sky: #8FD0F7;
+  --sky-strong: #B8E4FA;
+  --sky-tint: #203446;
+
+  --pink: #F781BC;
+  --pink-strong: #FAA9D2;
+  --pink-tint: #3D2233;
+
+  --danger: #F5A0B4;
+  --danger-tint: #3B2432;
+  --success: #86DDB4;
+
+  --gradient-brand: linear-gradient(135deg, #6A3FB5 0%, #9D3FC0 22%, #D14BAE 44%, #F0679A 66%, #FA8F82 84%, #F6B98A 100%);
+
+  --shadow-sm: 0 1px 2px rgba(6, 3, 14, 0.45);
+  --shadow-md: 0 12px 30px rgba(6, 3, 14, 0.5), 0 2px 8px rgba(6, 3, 14, 0.35);
+  --shadow-lg: 0 28px 64px rgba(4, 2, 12, 0.6), 0 8px 20px rgba(4, 2, 12, 0.4);
+
+  --grain-opacity: 0.04;
+  --scrim: rgba(8, 5, 16, 0.6);
+
+  --focus-ring: 0 0 0 3px rgba(221, 169, 247, 0.38);
+}
+
+/* No-JS / first-paint fallback only. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #1B1626; --bg-elevated: #211A2E; --surface: #251D33; --surface-2: #2E2440;
+    --border: #3B2E52; --border-strong: #4C3C68;
+    --text: #F5EEFC; --text-muted: #C0AEDB; --text-faint: #8C7BA8;
+    --brass: #DDA9F7; --brass-strong: #EFCBFF; --brass-tint: #392A4E;
+    --teal: #7FE8BE; --teal-strong: #A6F2D2; --teal-tint: #1F3A2E;
+    --marigold: #F3DC7E; --marigold-strong: #F8E8A8; --marigold-tint: #3C351C;
+    --sky: #8FD0F7; --sky-strong: #B8E4FA; --sky-tint: #203446;
+    --pink: #F781BC; --pink-strong: #FAA9D2; --pink-tint: #3D2233;
+    --danger: #F5A0B4; --danger-tint: #3B2432; --success: #86DDB4;
+    --gradient-brand: linear-gradient(135deg, #6A3FB5 0%, #9D3FC0 22%, #D14BAE 44%, #F0679A 66%, #FA8F82 84%, #F6B98A 100%);
+    --shadow-sm: 0 1px 2px rgba(6, 3, 14, 0.45);
+    --shadow-md: 0 12px 30px rgba(6, 3, 14, 0.5), 0 2px 8px rgba(6, 3, 14, 0.35);
+    --shadow-lg: 0 28px 64px rgba(4, 2, 12, 0.6), 0 8px 20px rgba(4, 2, 12, 0.4);
+    --grain-opacity: 0.04;
+    --scrim: rgba(8, 5, 16, 0.6);
+    --focus-ring: 0 0 0 3px rgba(221, 169, 247, 0.38);
+  }
+}
