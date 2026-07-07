@@ -18,6 +18,7 @@ app.use(cors({
     origin: "http://localhost:5173",
     credentials: true
 }));
+app.use(express.static(path.join(__dirname, "../public")));
 
 
 app.use('/api/auth', router);
@@ -31,6 +32,10 @@ app.use("/api/rag", ragRoutes);
 app.use("/uploads",express.static(
         path.join(__dirname, "../uploads")
     ));
+    
+app.get("*name", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+});
 
 
 module.exports = app;

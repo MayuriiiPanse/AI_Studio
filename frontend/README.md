@@ -44,7 +44,7 @@ npm run preview # serve the production build locally to sanity-check it
 Everything is controlled by one environment variable:
 
 ```
-VITE_API_URL=http://localhost:3000
+VITE_API_URL=https://ai-studio-utkr.onrender.com
 ```
 
 This should be the **origin of your backend** — no `/api` suffix, no trailing slash. The

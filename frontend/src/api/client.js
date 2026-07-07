@@ -1,9 +1,9 @@
 import axios from "axios";
 
-// Base URL of the backend, e.g. http://localhost:3000 (no trailing slash).
+// Base URL of the backend, e.g. https://ai-studio-utkr.onrender.com (no trailing slash).
 // The Express server exposes REST routes under /api and static uploads
 // (posters, voice clips) at its root, so we keep both derived from one value.
-export const API_ORIGIN = import.meta.env.VITE_API_URL || "http://localhost:3000";
+export const API_ORIGIN = import.meta.env.VITE_API_URL || "https://ai-studio-utkr.onrender.com";
 
 const api = axios.create({
   baseURL: `${API_ORIGIN}/api`,
