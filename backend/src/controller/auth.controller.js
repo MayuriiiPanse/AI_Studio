@@ -5,10 +5,17 @@ const jwt = require('jsonwebtoken');
 async function registerController(req,res){
     const{
         username,password
-    } = req.body;
+    } = req.body || {};
+
+    if (typeof username !== 'string' || !username.trim() ||
+        typeof password !== 'string' || !password) {
+        return res.status(400).json({
+            message: "Username and password are required"
+        });
+    }
 
     const isuserExist = await userModel.findOne({
-        username: username
+        username: username.trim()
     })
     if(isuserExist){
         return res.status(400).json({
@@ -16,7 +23,7 @@ async function registerController(req,res){
         })
     }
     const user = await userModel.create({
-        username,
+        username: username.trim(),
         password: await bcrypt.hash(password, 10)
     })
 
@@ -25,7 +32,7 @@ async function registerController(req,res){
     res.cookie("token", token, {
     httpOnly: true,
     sameSite: "lax",
-    secure: false
+    secure: process.env.NODE_ENV === "production"
 });
 
     return res.status(200).json({
@@ -42,16 +49,31 @@ async function registerController(req,res){
 
 
 async function loginController(req,res){
-    const {username,password} = req.body;
+    const {username,password} = req.body || {};
+
+    if (typeof username !== 'string' || !username.trim() ||
+        typeof password !== 'string' || !password) {
+        return res.status(400).json({
+            success: false,
+            message: "Username and password are required"
+        });
+    }
 
     const user = await userModel.findOne({
-        username
+        username: username.trim()
     })
 
     if(!user){
         return res.status(400).json({
             message:"user not found"
         })
+    }
+
+    if (!user.password) {
+        return res.status(400).json({
+            success: false,
+            message: "This account does not have a password. Register again."
+        });
     }
 
     const ispasswordValid = await bcrypt.compare(password, user.password);
@@ -67,7 +89,7 @@ async function loginController(req,res){
     res.cookie("token", token, {
     httpOnly: true,
     sameSite: "lax",
-    secure: false
+    secure: process.env.NODE_ENV === "production"
 });
 
     return res.status(200).json({

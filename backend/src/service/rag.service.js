@@ -2,17 +2,26 @@
 const { Pinecone } = require("@pinecone-database/pinecone");
 const axios = require("axios");
 
-const pinecone = new Pinecone({
-    apiKey: process.env.PINECONE_API_KEY
-});
+let ragNamespace;
 
-const index = pinecone.index(
-    process.env.PINECONE_INDEX_NAME
-);
+const getRagNamespace = () => {
+    if (!process.env.PINECONE_API_KEY || !process.env.PINECONE_INDEX_NAME) {
+        throw new Error(
+            "Pinecone is not configured. Set PINECONE_API_KEY and PINECONE_INDEX_NAME."
+        );
+    }
 
-const ragNamespace = index.namespace(
-    "ai-creator-studio"
-);
+    if (!ragNamespace) {
+        const pinecone = new Pinecone({
+            apiKey: process.env.PINECONE_API_KEY
+        });
+        ragNamespace = pinecone
+            .index(process.env.PINECONE_INDEX_NAME)
+            .namespace("ai-creator-studio");
+    }
+
+    return ragNamespace;
+};
 
 // ======================================================
 // Generate Embedding
@@ -130,7 +139,7 @@ const uploadToPinecone = async ({
         vector.id
     );
 
-    await ragNamespace.upsert({
+    await getRagNamespace().upsert({
 
         records: [vector]
 
@@ -173,7 +182,7 @@ const searchPinecone = async ({
         await generateEmbedding(query);
 
     const result =
-        await ragNamespace.query({
+        await getRagNamespace().query({
 
             vector: queryEmbedding,
 

@@ -32,7 +32,24 @@ app.use("/api/rag", ragRoutes);
 app.use("/uploads",express.static(
         path.join(__dirname, "../uploads")
     ));
-    
+
+app.use((error, req, res, next) => {
+    console.error('Request failed:', error);
+    if (res.headersSent) {
+        return next(error);
+    }
+
+    const status = error.statusCode || error.status || 500;
+    const message = status === 400 && error.type === "entity.parse.failed"
+        ? "Request body must be valid JSON"
+        : "Internal server error";
+
+    return res.status(status).json({
+        success: false,
+        message
+    });
+});
+
 app.get("*name", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/index.html"));
 });

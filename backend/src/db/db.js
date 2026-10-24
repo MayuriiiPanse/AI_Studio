@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 
 
-function connectToDB(){
-    mongoose.connect(process.env.MONGODB_URL)
-    .then(()=>{
-        console.log('Connect to DB!');
-    })
-    .catch((err)=>{
-        console.log('ERROR connecting to DB:',err);
-    })
+async function connectToDB(){
+    if (!process.env.MONGODB_URL) {
+        throw new Error('MONGODB_URL is not configured');
+    }
+
+    await mongoose.connect(process.env.MONGODB_URL, {
+        serverSelectionTimeoutMS: 10000
+    });
+
+    console.log('Connect to DB!');
 }
 
 
